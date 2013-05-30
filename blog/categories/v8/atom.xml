@@ -4,7 +4,7 @@
   <title><![CDATA[Category: v8 | nop's blog]]></title>
   <link href="http://pasaran.github.io/blog/categories/v8/atom.xml" rel="self"/>
   <link href="http://pasaran.github.io/"/>
-  <updated>2013-05-30T16:08:58+04:00</updated>
+  <updated>2013-05-30T16:15:04+04:00</updated>
   <id>http://pasaran.github.io/</id>
   <author>
     <name><![CDATA[Sergey Nikitin]]></name>
@@ -51,7 +51,7 @@ function add2(x, y) {
 Т.е. слишком развесистые комментарии могут замедлить выполнение программы!</p>
 
 <p>Можно посмотреть вот такой <a href="https://gist.github.com/pasaran/5677234">пример</a>.
-Там вычисляется некое выражение (<code>(x + 1) * (x - 1)</code>) тремя способами.
+Там вычисляется некое выражение — <code>(x + 1) * (x - 1)</code> — тремя способами.
 Первый — при помощи нескольких вспомогательных функций, второй — тоже самое, но
 в эти функции добавлены длинные комментарии. И третий — выражение вычисляется как есть,
 без каких-либо функций.</p>
