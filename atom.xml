@@ -1,103 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
-<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <title>nop's blog</title>
-  <meta name="author" content="Sergey Nikitin">
-
-  
-  <meta name="description" content="Комментировать код, конечно, полезно.
-Но иногда это приводит к неожиданным результатам. Например, сравним две функции: function add1(x, y) { return x &hellip;">
-  
-
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  
-  <link rel="canonical" href="http://pasaran.github.io">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/prism.css" rel="stylesheet" type="text/css">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="nop's blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="/javascripts/prism.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
-<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-
-</head>
-
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">nop's blog</a></h1>
-  
-    <h2>In computer science, NOP is an assembly language instruction that effectively does nothing at all.</h2>
-  
-</hgroup>
-
-</header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="http://google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="q" value="site:pasaran.github.io" />
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
-
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
+  <title><![CDATA[nop's blog]]></title>
+  <link href="http://pasaran.github.io/atom.xml" rel="self"/>
+  <link href="http://pasaran.github.io/"/>
+  <updated>2013-05-30T16:08:58+04:00</updated>
+  <id>http://pasaran.github.io/</id>
+  <author>
+    <name><![CDATA[Sergey Nikitin]]></name>
     
-      <h1 class="entry-title"><a href="/blog/2013/05/30/sometimes-comments-are-bad/">Иногда комментарии только во вред!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
 
   
-
-
-<time datetime="2013-05-30T15:13:00+04:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Комментировать код, конечно, полезно.
+  <entry>
+    <title type="html"><![CDATA[Иногда комментарии только во вред!]]></title>
+    <link href="http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad/"/>
+    <updated>2013-05-30T15:13:00+04:00</updated>
+    <id>http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad</id>
+    <content type="html"><![CDATA[<p>Комментировать код, конечно, полезно.
 Но иногда это приводит к неожиданным результатам.</p>
 
 <p>Например, сравним две функции:</p>
@@ -160,42 +81,15 @@ expression: 242ms
 Скорее всего, код завернут в <code>try-catch</code> или что-то подобное.
 Т.е. нужно с большой осторожностью делать тесты кода, который должен быть прооптимизирован js-движком.</p>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/21/markdown-in-octopress/">Проблемы с Markdown в Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-21T13:04:00+04:00" pubdate data-updated="true">May 21<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Markdown — прекрасный язык разметки и ему нет никаких альтернатив для написания
+  <entry>
+    <title type="html"><![CDATA[Проблемы с markdown в Octopress]]></title>
+    <link href="http://pasaran.github.io/blog/2013/05/21/markdown-in-octopress/"/>
+    <updated>2013-05-21T13:04:00+04:00</updated>
+    <id>http://pasaran.github.io/blog/2013/05/21/markdown-in-octopress</id>
+    <content type="html"><![CDATA[<p>Markdown — прекрасный язык разметки и ему нет никаких альтернатив для написания
 постов в блог, документации и т.д.
 Но иногда у него есть чудовищные проблемы, главным образом, связанные
 с блочными элементами внутри списков. В эти моменты хочется взять и переписать все по-своему.</p>
@@ -247,42 +141,15 @@ expression: 242ms
     И еще третий абзац с текстом.
 </code></pre>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/20/accelerating-oz-with-v8/">Пересказ видео «Accelerating Oz With V8»</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-05-20T18:36:00+04:00" pubdate data-updated="true">May 20<span>th</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Посмотрел давеча познавательное видео: <a href="https://developers.google.com/events/io/sessions/324908972">Accelerating Oz with V8</a>.
+  <entry>
+    <title type="html"><![CDATA[Пересказ видео «Accelerating Oz with V8»]]></title>
+    <link href="http://pasaran.github.io/blog/2013/05/20/accelerating-oz-with-v8/"/>
+    <updated>2013-05-20T18:36:00+04:00</updated>
+    <id>http://pasaran.github.io/blog/2013/05/20/accelerating-oz-with-v8</id>
+    <content type="html"><![CDATA[<p>Посмотрел давеча познавательное видео: <a href="https://developers.google.com/events/io/sessions/324908972">Accelerating Oz with V8</a>.
 Это доклад на Google I/O 2013. Речь там идет о некоем веб-приложении (на самом деле это 3d игра/демка),
 в котором обнаружились проблемы с производительностью и которое докладчики починили.</p>
 
@@ -340,89 +207,7 @@ function updateSprites(dt) {
   </li>
 </ul>
 
-</div>
+]]></content>
+  </entry>
   
-  
-
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
-  
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2013/05/30/sometimes-comments-are-bad/">Иногда комментарии только во вред!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/21/markdown-in-octopress/">Проблемы с Markdown в Octopress</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/05/20/accelerating-oz-with-v8/">Пересказ видео «Accelerating Oz With V8»</a>
-      </li>
-    
-  </ul>
-</section>
-
-
-
-
-
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2013 - Sergey Nikitin -
-  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'knopsh';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-
-
-
-
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-
-
-
-</body>
-</html>
+</feed>

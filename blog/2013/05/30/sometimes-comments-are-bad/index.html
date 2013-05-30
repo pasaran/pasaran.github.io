@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>nop's blog</title>
+  <title>Иногда комментарии только во вред! - nop's blog</title>
   <meta name="author" content="Sergey Nikitin">
 
   
@@ -19,7 +19,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://pasaran.github.io">
+  <link rel="canonical" href="http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/prism.css" rel="stylesheet" type="text/css">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
@@ -66,15 +66,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2013/05/30/sometimes-comments-are-bad/">Иногда комментарии только во вред!</a></h1>
+      <h1 class="entry-title">Иногда комментарии только во вред!</h1>
     
     
       <p class="meta">
@@ -97,7 +94,7 @@
   </header>
 
 
-  <div class="entry-content"><p>Комментировать код, конечно, полезно.
+<div class="entry-content"><p>Комментировать код, конечно, полезно.
 Но иногда это приводит к неожиданным результатам.</p>
 
 <p>Например, сравним две функции:</p>
@@ -161,109 +158,16 @@ expression: 242ms
 Т.е. нужно с большой осторожностью делать тесты кода, который должен быть прооптимизирован js-движком.</p>
 
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/21/markdown-in-octopress/">Проблемы с Markdown в Octopress</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
   
 
+<span class="byline author vcard">Posted by <span class="fn">Sergey Nikitin</span></span>
 
-<time datetime="2013-05-21T13:04:00+04:00" pubdate data-updated="true">May 21<span>st</span>, 2013</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Markdown — прекрасный язык разметки и ему нет никаких альтернатив для написания
-постов в блог, документации и т.д.
-Но иногда у него есть чудовищные проблемы, главным образом, связанные
-с блочными элементами внутри списков. В эти моменты хочется взять и переписать все по-своему.</p>
-
-<p>Например:</p>
-
-<pre class="language-markdown"><code>  * Первый элемент списка.
-
-  * Еще один элемент списка, на этот раз состоящий из нескольких абзацев.
-    Это первый абзац. За ним идет блок кода.
-
-        var foo = 42;
-
-    И еще третий абзац с текстом.
-</code></pre>
-
-<p>Теперь блок кода хочется раскрасить.
-В Octopress’е есть два способа это сделать: <a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a>
-и <a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a>.</p>
-
-<p>Увы, оба совершенно непригодны.</p>
-
-<ul>
-  <li>
-    <p>Во-первых, предполагается, что они начинаются в самом начале строки.
-Т.е. внутри списков, скажем, они выглядят странно.
-Либо они рушат все ваши инденты, либо же добавляют лишний индент в блок с кодом.</p>
-  </li>
-  <li>
-    <p>Во-вторых, они завершают блочный элемент списка.
-Т.е. в нашем примере выше третий абзац не будет считаться частью списка,
-а превратится в блок кода.</p>
-  </li>
-</ul>
-
-<p>Поэтому решение такое: использовать js-ные хайлайтеры. Например, <a href="http://prismjs.com/">Prism</a>.</p>
-
-<p>В <code>source/_includes/head.html</code> нужно подключить <code>prism.css</code> и <code>prism.js</code>.
-После чего код раскрашивается добавлением класса к блокам с кодом при помощи директивы <code>{: .language-... }</code>:</p>
-
-<pre class="language-markdown"><code>  * Первый элемент списка.
-
-  * Еще один элемент списка, на этот раз состоящий из нескольких абзацев.
-    Это первый абзац. За ним идет блок кода.
-
-    {: .language-js }
-        var foo = 42;
-
-    И еще третий абзац с текстом.
-</code></pre>
-
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
       
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2013/05/20/accelerating-oz-with-v8/">Пересказ видео «Accelerating Oz With V8»</a></h1>
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -275,84 +179,44 @@ expression: 242ms
   
 
 
-<time datetime="2013-05-20T18:36:00+04:00" pubdate data-updated="true">May 20<span>th</span>, 2013</time>
-        
-      </p>
+<time datetime="2013-05-30T15:13:00+04:00" pubdate data-updated="true">May 30<span>th</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/js/'>js</a>, <a class='category' href='/blog/categories/v8/'>v8</a>
+  
+</span>
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad/" data-via="knopsh" data-counturl="http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad/" >Tweet</a>
+  
+  
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/05/21/markdown-in-octopress/" title="Previous Post: Проблемы с markdown в Octopress">&laquo; Проблемы с markdown в Octopress</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><p>Посмотрел давеча познавательное видео: <a href="https://developers.google.com/events/io/sessions/324908972">Accelerating Oz with V8</a>.
-Это доклад на Google I/O 2013. Речь там идет о некоем веб-приложении (на самом деле это 3d игра/демка),
-в котором обнаружились проблемы с производительностью и которое докладчики починили.</p>
-
-<p>Видео идет 38 минут, и большая часть там ни о чем.
-Поэтому сделаю краткую выжимку, чтобы не забыть:</p>
-
-<ul>
-  <li>
-    <p>Во-первых, если v8 по каким-то причинам не оптимизировала функцию,
-в которой есть много арифметических вычислений, то все эти арифметические операции
-создают новые временные объекты, которые потом должны быть прибраны GC.</p>
-
-    <pre class="language-javascript"><code>var a = p * q;
-var b = x + y;
-var c = t / s;
-point.x = a * b * c;
-...
-</code></pre>
-
-    <p>в этом коде будет создано 5 лишних временных объектов (каждый бинарный оператор).</p>
-  </li>
-  <li>
-    <p>Во-вторых, обычный цикл <code>for-in</code> деоптимизирует функцию целиком
-(как какой-нибудь <code>eval</code> или блок <code>try-catch</code>).
-Пример со слайдов:</p>
-
-    <pre class="language-javascript"><code>function updateSprites(dt) {
-    for (var sprite in sprites) {
-        sprite.position.x += sprite.velocity.x * dt;
-        //  many more lines of arithmetic.
-        //  ...
-    }
-}
-</code></pre>
-
-    <p>Внутри цикла много арифметических вычислений, из-за цикла вся функция деоптимизирована.
-Как следствие — создается очень много временных объектов и GC тратит много времени на их удаление.
-Что не очень хорошо сказывается на производительности приложения.</p>
-
-    <p>Решение: вынести вычисления (все, что внутри <code>for-in</code>) в отдельную функцию, что позволит v8
-ее оптимизировать и не создавать нагрузку на GC.</p>
-
-    <pre class="language-javascript"><code>function updateSprite(sprite, dt) {
-    sprite.position.x += sprite.velocity.x * dt;
-    //  many more lines of arithmetic.
-    //  ...
-}
-
-function updateSprites(dt) {
-    for (var sprite in sprites) {
-        updateSprite(sprite, dt);
-    }
-}
-</code></pre>
-  </li>
-</ul>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     <section>
@@ -381,6 +245,7 @@ function updateSprites(dt) {
   
 </aside>
 
+
     </div>
   </div>
   <footer role="contentinfo"><p>
@@ -395,7 +260,10 @@ function updateSprites(dt) {
       var disqus_shortname = 'knopsh';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad/';
+        var disqus_url = 'http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

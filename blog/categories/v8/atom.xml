@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: v8 | nop's blog]]></title>
+  <link href="http://pasaran.github.io/blog/categories/v8/atom.xml" rel="self"/>
+  <link href="http://pasaran.github.io/"/>
+  <updated>2013-05-30T16:08:58+04:00</updated>
+  <id>http://pasaran.github.io/</id>
+  <author>
+    <name><![CDATA[Sergey Nikitin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Иногда комментарии только во вред!]]></title>
+    <link href="http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad/"/>
+    <updated>2013-05-30T15:13:00+04:00</updated>
+    <id>http://pasaran.github.io/blog/2013/05/30/sometimes-comments-are-bad</id>
+    <content type="html"><![CDATA[<p>Комментировать код, конечно, полезно.
+Но иногда это приводит к неожиданным результатам.</p>
+
+<p>Например, сравним две функции:</p>
+
+<pre class="language-javascript"><code>function add1(x, y) {
+    return x + y;
+}
+
+function add2(x, y) {
+    /*
+        ...
+        Очень длинный комментарий...
+        ...
+    */
+    return x + y;
+}
+</code></pre>
+
+<p>Они ничем не отличаются, кроме комментария.
+Большинство js-программистов привыкло, что пробелы и комментарии
+ни на что не влияют. Но это не так.</p>
+
+<p>В <code>v8</code> есть ограничение на размер функции, которая может быть заинлайнена:</p>
+
+<pre class="language-c"><code>DEFINE_int(max_inlined_source_size, 600,
+    "maximum source size in bytes considered for a single inlining")
+</code></pre>
+
+<p>При этом считается размер функции в исходном тексте, так что комментарии тоже учитываются.
+Т.е. слишком развесистые комментарии могут замедлить выполнение программы!</p>
+
+<p>Можно посмотреть вот такой <a href="https://gist.github.com/pasaran/5677234">пример</a>.
+Там вычисляется некое выражение (<code>(x + 1) * (x - 1)</code>) тремя способами.
+Первый — при помощи нескольких вспомогательных функций, второй — тоже самое, но
+в эти функции добавлены длинные комментарии. И третий — выражение вычисляется как есть,
+без каких-либо функций.</p>
+
+<p>Результаты примерно такие:</p>
+
+<pre class="language-sh"><code>$ node long-comments-are-bad.js
+
+func w/o comments: 247ms
+func w/ long comments: 813ms
+expression: 242ms
+</code></pre>
+
+<p>В первом варианте (в котором функции мелкие и они инлайнятся) результат практически
+такой же, как и просто в выражении. Т.е. дополнительные функции не дают никакого оверхеда.
+А второй вариант (с комментариями) в три с лишним раза медленнее.</p>
+
+<p>Пример, конечно, синтетический, но тем не менее.</p>
+
+<p>Выводы такие: код нужно обфусцировать всегда.
+Все давным давно делают это для javascript’а, который выполняется в браузере.
+Но, неплохо бы делать это и для серверного кода, который выполняется в <code>node.js</code>.</p>
+
+<p>Интересный момент. Этот же <a href="http://jsperf.com/long-comments">тест</a> на jsperf.com дает другие результаты в Хроме.
+Первый и второй вариант идентичны.
+Можно предположить, что обертка, которую добавляет jsperf.com выключает какие-то образом оптимизацию в <code>v8</code>.
+Скорее всего, код завернут в <code>try-catch</code> или что-то подобное.
+Т.е. нужно с большой осторожностью делать тесты кода, который должен быть прооптимизирован js-движком.</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Пересказ видео «Accelerating Oz with V8»]]></title>
+    <link href="http://pasaran.github.io/blog/2013/05/20/accelerating-oz-with-v8/"/>
+    <updated>2013-05-20T18:36:00+04:00</updated>
+    <id>http://pasaran.github.io/blog/2013/05/20/accelerating-oz-with-v8</id>
+    <content type="html"><![CDATA[<p>Посмотрел давеча познавательное видео: <a href="https://developers.google.com/events/io/sessions/324908972">Accelerating Oz with V8</a>.
+Это доклад на Google I/O 2013. Речь там идет о некоем веб-приложении (на самом деле это 3d игра/демка),
+в котором обнаружились проблемы с производительностью и которое докладчики починили.</p>
+
+<p>Видео идет 38 минут, и большая часть там ни о чем.
+Поэтому сделаю краткую выжимку, чтобы не забыть:</p>
+
+<ul>
+  <li>
+    <p>Во-первых, если v8 по каким-то причинам не оптимизировала функцию,
+в которой есть много арифметических вычислений, то все эти арифметические операции
+создают новые временные объекты, которые потом должны быть прибраны GC.</p>
+
+    <pre class="language-javascript"><code>var a = p * q;
+var b = x + y;
+var c = t / s;
+point.x = a * b * c;
+...
+</code></pre>
+
+    <p>в этом коде будет создано 5 лишних временных объектов (каждый бинарный оператор).</p>
+  </li>
+  <li>
+    <p>Во-вторых, обычный цикл <code>for-in</code> деоптимизирует функцию целиком
+(как какой-нибудь <code>eval</code> или блок <code>try-catch</code>).
+Пример со слайдов:</p>
+
+    <pre class="language-javascript"><code>function updateSprites(dt) {
+    for (var sprite in sprites) {
+        sprite.position.x += sprite.velocity.x * dt;
+        //  many more lines of arithmetic.
+        //  ...
+    }
+}
+</code></pre>
+
+    <p>Внутри цикла много арифметических вычислений, из-за цикла вся функция деоптимизирована.
+Как следствие — создается очень много временных объектов и GC тратит много времени на их удаление.
+Что не очень хорошо сказывается на производительности приложения.</p>
+
+    <p>Решение: вынести вычисления (все, что внутри <code>for-in</code>) в отдельную функцию, что позволит v8
+ее оптимизировать и не создавать нагрузку на GC.</p>
+
+    <pre class="language-javascript"><code>function updateSprite(sprite, dt) {
+    sprite.position.x += sprite.velocity.x * dt;
+    //  many more lines of arithmetic.
+    //  ...
+}
+
+function updateSprites(dt) {
+    for (var sprite in sprites) {
+        updateSprite(sprite, dt);
+    }
+}
+</code></pre>
+  </li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>

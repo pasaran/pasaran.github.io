@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: markdown | nop's blog]]></title>
+  <link href="http://pasaran.github.io/blog/categories/markdown/atom.xml" rel="self"/>
+  <link href="http://pasaran.github.io/"/>
+  <updated>2013-05-30T16:08:58+04:00</updated>
+  <id>http://pasaran.github.io/</id>
+  <author>
+    <name><![CDATA[Sergey Nikitin]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Проблемы с markdown в Octopress]]></title>
+    <link href="http://pasaran.github.io/blog/2013/05/21/markdown-in-octopress/"/>
+    <updated>2013-05-21T13:04:00+04:00</updated>
+    <id>http://pasaran.github.io/blog/2013/05/21/markdown-in-octopress</id>
+    <content type="html"><![CDATA[<p>Markdown — прекрасный язык разметки и ему нет никаких альтернатив для написания
+постов в блог, документации и т.д.
+Но иногда у него есть чудовищные проблемы, главным образом, связанные
+с блочными элементами внутри списков. В эти моменты хочется взять и переписать все по-своему.</p>
+
+<p>Например:</p>
+
+<pre class="language-markdown"><code>  * Первый элемент списка.
+
+  * Еще один элемент списка, на этот раз состоящий из нескольких абзацев.
+    Это первый абзац. За ним идет блок кода.
+
+        var foo = 42;
+
+    И еще третий абзац с текстом.
+</code></pre>
+
+<p>Теперь блок кода хочется раскрасить.
+В Octopress’е есть два способа это сделать: <a href="http://octopress.org/docs/plugins/backtick-codeblock/">Backtick Code Blocks</a>
+и <a href="http://octopress.org/docs/plugins/codeblock/">Codeblock</a>.</p>
+
+<p>Увы, оба совершенно непригодны.</p>
+
+<ul>
+  <li>
+    <p>Во-первых, предполагается, что они начинаются в самом начале строки.
+Т.е. внутри списков, скажем, они выглядят странно.
+Либо они рушат все ваши инденты, либо же добавляют лишний индент в блок с кодом.</p>
+  </li>
+  <li>
+    <p>Во-вторых, они завершают блочный элемент списка.
+Т.е. в нашем примере выше третий абзац не будет считаться частью списка,
+а превратится в блок кода.</p>
+  </li>
+</ul>
+
+<p>Поэтому решение такое: использовать js-ные хайлайтеры. Например, <a href="http://prismjs.com/">Prism</a>.</p>
+
+<p>В <code>source/_includes/head.html</code> нужно подключить <code>prism.css</code> и <code>prism.js</code>.
+После чего код раскрашивается добавлением класса к блокам с кодом при помощи директивы <code>{: .language-... }</code>:</p>
+
+<pre class="language-markdown"><code>  * Первый элемент списка.
+
+  * Еще один элемент списка, на этот раз состоящий из нескольких абзацев.
+    Это первый абзац. За ним идет блок кода.
+
+    {: .language-js }
+        var foo = 42;
+
+    И еще третий абзац с текстом.
+</code></pre>
+
+]]></content>
+  </entry>
+  
+</feed>
